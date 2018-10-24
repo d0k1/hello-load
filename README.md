@@ -10,4 +10,4 @@ But is it a good fit for your specific needs?
 
 In this talk I'll try to test every XYZ used in one particular project, under some kind of high load. May be you can't fail high load with OSS like XYZ, or may be not.
 
-
+Slides https://d0k1.github.io/hello-load/#/
