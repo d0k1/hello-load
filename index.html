@@ -45,46 +45,109 @@
     
     <div class="slides">
         <section>
-            <h1>Fail high load with OSS</h1>
+            <h1>Fail high load with Open Source</h1>
             <div style="position: relative; right: 0;">@dkirpichenkov</div>
         </section>
     </div>
     <div class="slides">
         <section>
             <h1>SMP Capacity</h1>
+            <p>3100+ пользователей</p>
+            <p>Ожидание</p>
+            <ul>
+                <li>1 приложение</li>
+                <li>1 БД</li>
+                <li>2 сервера</li>
+            </ul>
+        </section>
+        <section>
+            <h1>SMP Capacity</h1>
+            <p>3100+ пользователей</p>
+            <p>Реальность</p>
+            <ul>
+                <li>3 приложения</li>
+                <li>3 БД</li>
+                <li>6 серверов</li>
+            </ul>
         </section>
         <section>
             <h1>Architechture</h1>
+            <ul>
+                <li>Java</li>
+                <li>Tomcat</li>            
+                <li>Монолит</li>
+                <li>Infinispan</li>
+                <li>Hibernate</li>
+                <li>Artemis</li>
+                <li>Lucene</li>
+            </ul>
         </section>
         <section>
-            <h1>Java JIT</h1>
+            <h1>Alive JIT Compiler</h1>
+            <img src="img/healthyJIT.bmp"/>
         </section>
         <section>
+                <h1>Zombies ate JIT Compiler</h1>
+                <img src="img/healthyJIT.bmp"/>
+            </section>
+            <section>
             <h1>Tomcat</h1>
+            <p>Use a better tomcat - jetty</p>
         </section>
         <section>
             <h1>Tomcat connector</h1>
+            <code>
+                Http threads
+                Buffer
+                NIO
+            </code>
         </section>
         <section>
             <h1>Tomcat non blocking</h1>
+            <p>Does tomcat team realy hate async servlets?</p>
         </section>
         <section>
             <h1>Log4j</h1>
+            <ul>
+                <li>80Gb/day</li>
+                <li>7Gb/hour</li>
+                <li>NAS storage</li>
+            </ul>
         </section>
         <section>
             <h1>SMP loves JMS</h1>
+            <ul>
+                <li>8+ queses</li>
+                <li>3k messages/min</li>
+            </ul>
+        </section>
+        <section>
+            <h1>Spring JMS</h1>
+            <ul>
+                <li>org.springframework.jms.core.JmsTemplate</li>
+                <li>org.springframework.jms.listener.AbstractMessageListenerContainer</li>
+            </ul>
         </section>
         <section>
             <h1>Artemis</h1>
+            <p>
+                <img src="img/ArtemisHighPerf.bmp"/>
+                <br/>
+                <a href="https://softwaremill.com/mqperf">https://softwaremill.com/mqperf/</a>
+            </p>
         </section>
         <section>
             <h1>Artemis connection</h1>
+            <img src="img/ArtemisContention.bmp"/>
         </section>
         <section>
             <h1>Large messages</h1>
         </section>
         <section>
             <h1>Master slave</h1>
+        </section>
+        <section>
+            <h1>Here comes cluster</h1>
         </section>
         <section>
             <h1>Infinispan</h1>
@@ -96,7 +159,7 @@
             <h1>Infinispan replication</h1>
         </section>
         <section>
-            <h1>Lucene</h1>
+            <h1>Lucene</h1>            
         </section>
         <section>
             <h1>Lucene Directory</h1>
