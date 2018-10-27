@@ -65,46 +65,53 @@
             <p>3100+ пользователей</p>
             <p>Реальность</p>
             <ul>
-                <li>3 приложения</li>
+                <li>3+ приложения</li>
                 <li>3 БД</li>
                 <li>6 серверов</li>
             </ul>
         </section>
         <section>
-            <h1>Architechture</h1>
+            <h1>Architecture</h1>
             <ul>
                 <li>Java</li>
                 <li>Tomcat</li>            
-                <li>Монолит</li>
+                <li>SMP</li>
+                <li>Postgres</li>
+            </ul>
+        </section>
+        <section>
+            <h1>SMP</h1>
+            <ul>
+                <li>Log4j</li>
+                <li>Artemis</li>
                 <li>Infinispan</li>
                 <li>Hibernate</li>
-                <li>Artemis</li>
                 <li>Lucene</li>
             </ul>
         </section>
         <section>
-            <h1>Alive JIT Compiler</h1>
+            <h1>JIT Compiler. Live</h1>
             <img src="img/healthyJIT.bmp"/>
         </section>
         <section>
-                <h1>Zombies ate JIT Compiler</h1>
-                <img src="img/healthyJIT.bmp"/>
+                <h1>JIT Compiler. Dead</h1>
+                <img src="img/unhealthyJIT.bmp"/>
             </section>
             <section>
             <h1>Tomcat</h1>
-            <p>Use a better tomcat - jetty</p>
+            <img src="img/tomcat.bmp"/>
         </section>
         <section>
             <h1>Tomcat connector</h1>
-            <code>
-                Http threads
-                Buffer
-                NIO
-            </code>
+            <img src="img/tomcat_opts.bmp"/>
         </section>
         <section>
             <h1>Tomcat non blocking</h1>
-            <p>Does tomcat team realy hate async servlets?</p>
+            <img src="img/broken_pipe.bmp"/>
+        </section>
+        <section>
+            <h1>Log4j</h1>
+            <img src="img/log4j_perf.png"/>
         </section>
         <section>
             <h1>Log4j</h1>
@@ -115,17 +122,14 @@
             </ul>
         </section>
         <section>
+                <h1>SMP loves JMS</h1>
+                <img src="img/smp_loves_jms.png"/>
+            </section>
+            <section>
             <h1>SMP loves JMS</h1>
             <ul>
                 <li>8+ queses</li>
                 <li>3k messages/min</li>
-            </ul>
-        </section>
-        <section>
-            <h1>Spring JMS</h1>
-            <ul>
-                <li>org.springframework.jms.core.JmsTemplate</li>
-                <li>org.springframework.jms.listener.AbstractMessageListenerContainer</li>
             </ul>
         </section>
         <section>
@@ -137,53 +141,147 @@
             </p>
         </section>
         <section>
-            <h1>Artemis connection</h1>
-            <img src="img/ArtemisContention.bmp"/>
-        </section>
-        <section>
             <h1>Large messages</h1>
+            <img src="img/large_message.png"/>
         </section>
         <section>
-            <h1>Master slave</h1>
+            <h1>Artemis Failover</h1>
+            <ul>
+                <li>FS</li>
+                <li>Replication</li>
+                <li>JDBC</li>
+            </ul>
+        </section>
+        <section>
+            <h1>Artemis replication</h1>
+            <img src="img/artemis_replication1.png"/>
+        </section>
+        <section>
+            <h1>Artemis replication</h1>
+            <img src="img/artemis_replication2.png"/>
+        </section>
+        <section>
+                <h1>Spring JMS</h1>
+                <ul>
+                    <li>JmsTemplate</li>
+    <pre style="width:auto;"><code data-trim class="java">
+        context.getBean("jmsTemplete").send();
+    </code></pre>
+                    <li>AbstractMessageListenerContainer</li>
+    <pre style="width:auto;"><code data-trim class="java">
+        public class listener 
+        extends AbstractMessageListenerContainer {
+            public void onMessage(Message message, Session session) {}
+        }  
+    </code></pre>
+                </ul>
+        </section>
+        <section>
+            <h1>Artemis connection</h1>
+<pre style="width:auto;"><code data-trim class="java">
+        //      Spring JMS integration
+        
+        // listener acquires a connection
+        listener.onMessage() 
+
+        //jmsTemplate acquires a connection
+        context.getBean("jmsTemplete").send(); 
+
+
+        // This is a connection factory
+        public class ActiveMQConnectionFactory {
+
+            // really create a connection 
+            protected synchronized ActiveMQConnection 
+                    createConnectionInternal(final String username,
+                                            final String password,
+                                            final boolean isXA,
+                                            final int type) {}
+        }
+
+</code></pre>
+        </section>
+        <section>
+                <h1>Artemis contention</h1>
+                <p>JFR recording for 40 min</p>
+                <ul>
+                    <li>4500+ waits</li>
+                    <li>17 min waits</li>
+                </ul>
         </section>
         <section>
             <h1>Here comes cluster</h1>
+            <img src="img/here_comes_cluster.png"/>
+        </section>
+        <section>
+                <h1>Artemis contention</h1>
+                <p>JFR recording for 40 min</p>
+                <ul>
+                    <li>1000 waits</li>
+                    <li>3 min waits</li>
+                </ul>
         </section>
         <section>
             <h1>Infinispan</h1>
+            <img src="img/is.bmp"/>
         </section>
         <section>
             <h1>Infinispan async</h1>
+            <img src="img/is_async.png"/>
         </section>
         <section>
             <h1>Infinispan replication</h1>
+            <img src="img/is_warmup.png"/>
         </section>
         <section>
-            <h1>Lucene</h1>            
+            <h1>Lucene</h1>
+            <img src="img/ultra_fast_lucene.png"/>
         </section>
         <section>
             <h1>Lucene Directory</h1>
+            <ul>
+                <li>MMapDirectory</li>
+                <li>Infinispan Lucene Directory</li>
+                <li>FSDirectory</li>
+            </ul>
         </section>
         <section>
-            <h1>Hikari</h1>
+            <h1>Connection pool</h1>
+            <img src="img/dbpool.png"/>
+        </section>
+        <section>
+            <h1>Connection pools: c3p0</h1>
+            <img src="img/c3p0.bmp"/>
+        </section>
+        <section>
+            <h1>Connection pools: HikariCP</h1>
+            <img src="img/hikaricp.bmp"/>
         </section>
         <section>
             <h1>Hibernate executeUpdate</h1>
+            <pre style="width:auto;"><code data-trim class="java">
+Session session = SessionFactory.getCurrentSession();
+Query query = session.createSQLQuery("update tbl_servicall ...");
+query.executeUpdate();
+
+query = session.createQuery("update servicecall ...")
+query.executeUpdate();
+            </code></pre>
         </section>
         <section>
             <h1>Hibernate partitioning</h1>
+            <img src="img/hibernate_btcher_error.png"/>
         </section>
         <section>
             <h1>Magic of indexes</h1>
+            <img src="img/magic_of_indexes.bmp"/>
         </section>
         <section>
             <h1>Postgres replication</h1>
+            <img src="img/postgres_standby.bmp"/>
         </section>
         <section>
             <h1>Outcome</h1>
-        </section>
-        <section>
-            <h1>Do not trust</h1>
         </section>
     </div>
 </div>
