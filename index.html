@@ -123,7 +123,8 @@
         </section>
         <section>
                 <h1>SMP loves JMS</h1>
-                <img src="img/smp_loves_jms.png"/>
+                <br/>
+                <img src="img/smp_loves_jms.png" width="70%"/>
             </section>
             <section>
             <h1>SMP loves JMS</h1>
@@ -133,11 +134,9 @@
             </ul>
         </section>
         <section>
-            <h1>Artemis</h1>
+            <h1></h1>
             <p>
-                <img src="img/ArtemisHighPerf.bmp"/>
-                <br/>
-                <a href="https://softwaremill.com/mqperf">https://softwaremill.com/mqperf/</a>
+                <img src="img/artemis_perf.png"/>
             </p>
         </section>
         <section>
@@ -242,8 +241,16 @@
             <ul>
                 <li>MMapDirectory</li>
                 <li>Infinispan Lucene Directory</li>
-                <li>FSDirectory</li>
             </ul>
+        </section>
+        <section>
+            <h1>Lucene Directory</h1>
+            <p>
+                FSDirectory is a solid option
+                <br/>
+                15% + faster. for free.
+            </p>
+
         </section>
         <section>
             <h1>Connection pool</h1>
@@ -258,8 +265,20 @@
             <img src="img/hikaricp.bmp"/>
         </section>
         <section>
+            <h1>HikariCP</h1>
+            <p>
+                C3P0<br/>
+                2000 waits per 40min</p>            
+            <p>Hikari
+                <br/>
+                0 waits per 40min</p>    
+            <p>
+                HikariCP is ultra fast connection pool. Proven.
+            </p>
+        </section>
+        <section>
             <h1>Hibernate executeUpdate</h1>
-            <pre style="width:auto;"><code data-trim class="java">
+            <pre style="width:auto;font-size: 22pt"><code data-trim class="java">
 Session session = SessionFactory.getCurrentSession();
 Query query = session.createSQLQuery("update tbl_servicall ...");
 query.executeUpdate();
@@ -282,6 +301,11 @@ query.executeUpdate();
         </section>
         <section>
             <h1>Outcome</h1>
+            <ul>
+                <li>Internet can't lie</li>
+                <li>Bugs you found is only your problem</li>
+                <li>Every project has a roadmap</li>
+            </ul>
         </section>
     </div>
 </div>
